@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { Plus, Calendar, Clock, User, MapPin, Filter, Search } from 'lucide-react';
@@ -265,9 +266,11 @@ const BookingsManagement = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
+                    <Link to={`/bookings/${booking.id}`}>
+                      <Button variant="outline" size="sm">
+                        View Details
+                      </Button>
+                    </Link>
                     {booking.status === 'Pending' && (
                       <>
                         <Button variant="outline" size="sm" className="text-green-600 border-green-600 hover:bg-green-50">

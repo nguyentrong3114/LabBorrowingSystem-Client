@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
-import { Plus, Search, Edit, Trash2, Filter } from 'lucide-react';
+import { Plus, Search, Edit, Trash2, Filter, Eye } from 'lucide-react';
 
 interface Equipment {
   id: number;
@@ -204,6 +205,11 @@ const EquipmentManagement = () => {
                     <td className="py-3 px-4 text-gray-600">{item.lastMaintenance}</td>
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
+                        <Link to={`/equipment/${item.id}`}>
+                          <Button variant="outline" size="sm">
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        </Link>
                         <Button variant="outline" size="sm">
                           <Edit className="h-4 w-4" />
                         </Button>

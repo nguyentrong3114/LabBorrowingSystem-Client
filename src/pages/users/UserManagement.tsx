@@ -282,9 +282,17 @@ const UserManagement = () => {
                     </td>
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
-                        <Button variant="outline" size="sm" title="View Details">
-                          <Eye className="h-4 w-4" />
-                        </Button>
+                        {user.role === 'Student' ? (
+                          <Link to={`/users/${user.id}`}>
+                            <Button variant="outline" size="sm" title="View Borrowing Details">
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          </Link>
+                        ) : (
+                          <Button variant="outline" size="sm" title="View Details">
+                            <Eye className="h-4 w-4" />
+                          </Button>
+                        )}
                         <Link to={`/users/${user.id}/edit`}>
                           <Button variant="outline" size="sm" title="Edit User">
                             <Edit className="h-4 w-4" />
